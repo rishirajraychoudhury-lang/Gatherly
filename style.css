@@ -48,14 +48,12 @@ a{color:inherit}
 .card:hover{transform:translateY(-4px)}
 
 /* FIXED EVENT IMAGES */
-.card .img{
-  height:220px;
-  width:100%;
-  background-size:contain;
+.card .img,.m-img{
+  aspect-ratio:3/2;
+  background-color:var(--card);
   background-position:center;
   background-repeat:no-repeat;
-  background-color:var(--card);
-  flex-shrink:0;
+  background-size:contain;
 }
 
 .m-img{
