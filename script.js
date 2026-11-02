@@ -12,7 +12,7 @@ const $ = s => document.querySelector(s);
 const store = {get:()=>{try{return JSON.parse(localStorage.getItem("regs"))||[]}catch{return[]}},set:v=>{try{localStorage.setItem("regs",JSON.stringify(v))}catch{}}};
 let cat = "All", q = "";
 const fmt = d => new Date(d).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"});
-const img = e => `images/${e.img}.svg`;
+const img = e => `${e.img}.svg`;
 
 // Theme
 const root = document.documentElement;
