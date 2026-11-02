@@ -1,11 +1,14 @@
+
 :root{--bg:#f5f6fb;--card:#fff;--ink:#12182b;--muted:#5d6580;--line:#e1e4f0;--accent:#3d5afe;--accent-ink:#fff;--pop:#ffc93c;--shadow:0 8px 28px rgba(18,24,43,.08)}
 :root[data-theme=dark]{--bg:#0d1222;--card:#161d33;--ink:#eef0fa;--muted:#9aa3c4;--line:#273052;--accent:#7b8dff;--accent-ink:#0d1222;--shadow:0 8px 28px rgba(0,0,0,.4)}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 "DM Sans",system-ui,sans-serif;transition:background .3s,color .3s}
 h1,h2,h3,.logo{font-family:"Bricolage Grotesque","DM Sans",sans-serif;line-height:1.1;margin:0}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
 .nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:.8rem clamp(1rem,4vw,3rem);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .logo{font-size:1.5rem;font-weight:800;text-decoration:none}
 .nav nav{display:flex;gap:1.2rem;align-items:center}
@@ -13,12 +16,15 @@ a{color:inherit}
 .nav nav a:hover{color:var(--accent)}
 .badge{background:var(--pop);color:#12182b;border-radius:99px;padding:0 .5rem;font-size:.8rem;font-weight:700}
 .icon-btn{background:none;border:1px solid var(--line);border-radius:50%;width:2.4rem;height:2.4rem;cursor:pointer;font-size:1.1rem}
+
 .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;align-items:center;padding:clamp(2.5rem,7vw,6rem) clamp(1rem,4vw,3rem);max-width:1200px;margin:auto}
 .hero h1{font-size:clamp(2.3rem,6vw,4.4rem);font-weight:800;letter-spacing:-.02em}
 .hero p{max-width:46ch;color:var(--muted);font-size:1.15rem;margin:1.2rem 0 1.8rem}
+
 .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:12px;padding:.85rem 1.5rem;font:700 1rem "DM Sans",sans-serif;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 40%,transparent)}
 .btn.small{padding:.55rem 1.1rem}
+
 .next-card{background:var(--ink);color:var(--bg);border-radius:24px;padding:1.8rem;box-shadow:var(--shadow);animation:rise .8s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}}
 .next-card .muted{color:var(--pop);margin:0 0 .4rem;font-weight:700}
@@ -28,6 +34,7 @@ a{color:inherit}
 .timer b{display:block;font:800 1.8rem "Bricolage Grotesque",sans-serif}
 .timer span{font-size:.8rem;opacity:.75}
 .next-card .btn{background:var(--pop);color:#12182b}
+
 .wrap{max-width:1200px;margin:auto;padding:3rem clamp(1rem,4vw,3rem)}
 .sec-title{font-size:clamp(1.7rem,3.5vw,2.4rem);margin-bottom:1.5rem}
 .tools{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:1.8rem}
@@ -35,34 +42,67 @@ a{color:inherit}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem}
 .chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:.45rem 1rem;border-radius:99px;cursor:pointer;font:500 .95rem "DM Sans",sans-serif;transition:.2s}
 .chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem}
 .card{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .25s}
 .card:hover{transform:translateY(-4px)}
-.card .img,.m-img{aspect-ratio:3/2;background:linear-gradient(135deg,var(--accent),var(--pop)) center/cover}
+
+/* FIXED EVENT IMAGES */
+.card .img{
+  height:220px;
+  width:100%;
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-color:var(--card);
+  flex-shrink:0;
+}
+
+.m-img{
+  width:100%;
+  aspect-ratio:16/7;
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-color:var(--card);
+}
+
 .card-body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
 .card h3{font-size:1.25rem}
 .tag{display:inline-block;align-self:flex-start;background:color-mix(in srgb,var(--pop) 35%,transparent);padding:.1rem .7rem;border-radius:99px;font-size:.85rem;font-weight:700}
 .meta{color:var(--muted);font-size:.92rem;margin:0}
 .card p.desc{margin:0;font-size:.95rem;flex:1}
+
 .empty{text-align:center;color:var(--muted);padding:2rem}
 .reg-list{list-style:none;padding:0;display:grid;gap:.8rem}
 .reg-list li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .reg-list .none{color:var(--muted);border-style:dashed}
+
 .foot{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid var(--line)}
+
 dialog{border:0;border-radius:24px;padding:0;width:min(640px,94vw);max-height:92vh;background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:auto}
 dialog[open]{animation:pop .3s ease}
 dialog::backdrop{background:rgba(8,12,24,.6)}
 @keyframes pop{from{opacity:0;transform:scale(.96)}}
 .close{position:absolute;right:.8rem;top:.8rem;width:2.2rem;height:2.2rem;border-radius:50%;border:0;cursor:pointer;background:var(--card);color:var(--ink)}
-.m-img{aspect-ratio:16/7}
 .m-body{padding:1.5rem}
 .m-body h2{font-size:1.9rem;margin:.6rem 0}
+
 form{display:grid;gap:.4rem;margin-top:1.5rem;border-top:1px solid var(--line);padding-top:1.2rem}
 label{display:grid;gap:.3rem;font-weight:500;margin-top:.5rem}
 input,select{padding:.75rem .9rem;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
 input.bad{border-color:#e5484d}
 .err{color:#e5484d;min-height:1.1em}
-.done{text-align:center;padding:1rem 0}
-.tick{width:4rem;height:4rem;margin:0 auto 1rem;border-radius:50%;background:#22a06b;color:#fff;font-size:2rem;display:grid;place-items:center;animation:pop .4s ease}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.nav nav{gap:.7rem}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+}
+@media(max-width:500px){
+  .nav{padding:.7rem 1rem}
+  .nav nav{gap:.7rem}
+  .wrap{padding:2rem 1rem}
+  .card .img{height:190px}
+  .grid{grid-template-columns:1fr}
+}
