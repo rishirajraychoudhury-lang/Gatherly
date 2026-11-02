@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gatherly – Discover and register for events</title>
+<meta name="description" content="Browse upcoming tech, music, art and sports events and register in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#top" class="logo">Gatherly</a>
+  <nav aria-label="Main">
+    <a href="#events">Events</a>
+    <a href="#registrations">My tickets <span id="regCount" class="badge">0</span></a>
+    <button id="themeBtn" class="icon-btn" aria-label="Switch colour theme">🌓</button>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Find the next thing worth leaving the house for.</h1>
+      <p>Hackathons, gigs, art walks and city runs. Pick an event, register in under a minute.</p>
+      <a class="btn" href="#events">Browse events</a>
+    </div>
+    <div class="next-card" aria-live="off">
+      <p class="muted">Next up</p>
+      <h2 id="nextName"></h2>
+      <div class="timer" id="timer"></div>
+      <button class="btn small" id="nextBtn">Register now</button>
+    </div>
+  </section>
+
+  <section id="events" class="wrap">
+    <h2 class="sec-title">Upcoming events</h2>
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search by name, venue or keyword" aria-label="Search events">
+      <div id="chips" class="chips" role="group" aria-label="Filter by category"></div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>No events match your search. Try a different keyword or choose All.</p>
+  </section>
+
+  <section id="registrations" class="wrap">
+    <h2 class="sec-title">My tickets</h2>
+    <ul id="regList" class="reg-list"></ul>
+  </section>
+</main>
+
+<footer class="foot">Gatherly · Built with HTML, CSS and JavaScript</footer>
+
+<dialog id="modal" aria-labelledby="mTitle">
+  <button class="close" id="closeBtn" aria-label="Close">✕</button>
+  <div id="mImg" class="m-img"></div>
+  <div class="m-body">
+    <span id="mCat" class="tag"></span>
+    <h2 id="mTitle"></h2>
+    <p class="meta" id="mMeta"></p>
+    <p id="mDesc"></p>
+    <form id="form" novalidate>
+      <h3>Register</h3>
+      <label>Full name<input name="name" autocomplete="name" required></label>
+      <small class="err" data-for="name"></small>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <small class="err" data-for="email"></small>
+      <label>Phone number<input name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile number" required></label>
+      <small class="err" data-for="phone"></small>
+      <label>Event<select name="event" id="eventSel"></select></label>
+      <button class="btn" type="submit">Confirm registration</button>
+    </form>
+    <div id="done" class="done" hidden>
+      <div class="tick">✓</div>
+      <h3>You're registered</h3>
+      <p id="doneMsg"></p>
+      <button class="btn small" id="doneBtn">Back to events</button>
+    </div>
+  </div>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
